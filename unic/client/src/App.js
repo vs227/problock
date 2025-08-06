@@ -16,9 +16,9 @@ function App() {
         <Header />
       </RevealWrapper>
 
-      <RevealWrapper delay={0.2}>
-        <Mid />
-      </RevealWrapper>
+      
+      <Mid />
+      
 
       <RevealWrapper delay={0.3}>
         <Res />
