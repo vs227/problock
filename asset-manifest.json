@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/problock/static/css/main.ece8cc37.css",
-    "main.js": "/problock/static/js/main.36ef0bc0.js",
+    "main.css": "/problock/static/css/main.53017d47.css",
+    "main.js": "/problock/static/js/main.93dc0bc7.js",
     "static/js/453.a3c1d153.chunk.js": "/problock/static/js/453.a3c1d153.chunk.js",
     "static/media/building.jpg": "/problock/static/media/building.9a71d860706bd332aaa3.jpg",
     "static/media/image.png": "/problock/static/media/image.461501035e9d25d1f9aa.png",
@@ -15,12 +15,12 @@
     "static/media/prop.jpg": "/problock/static/media/prop.89c5ae60c2bc1399b1df.jpg",
     "static/media/image22.png": "/problock/static/media/image22.d1de49b4fe1840f2c600.png",
     "index.html": "/problock/index.html",
-    "main.ece8cc37.css.map": "/problock/static/css/main.ece8cc37.css.map",
-    "main.36ef0bc0.js.map": "/problock/static/js/main.36ef0bc0.js.map",
+    "main.53017d47.css.map": "/problock/static/css/main.53017d47.css.map",
+    "main.93dc0bc7.js.map": "/problock/static/js/main.93dc0bc7.js.map",
     "453.a3c1d153.chunk.js.map": "/problock/static/js/453.a3c1d153.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ece8cc37.css",
-    "static/js/main.36ef0bc0.js"
+    "static/css/main.53017d47.css",
+    "static/js/main.93dc0bc7.js"
   ]
 }
