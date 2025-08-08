@@ -1,4 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 section {
   padding: 60px 0;
-  scroll-margin-top: 80px; /* so scroll doesn't hide behind navbar */
+  scroll-margin-top: 80px;
+}
+
+body {
+  background: #ffffff;
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.page {
+  padding-top: 100px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }

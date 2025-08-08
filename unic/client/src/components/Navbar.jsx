@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../images/image22.png";
 
-const Navbar = () => {
+const Navbar = ({ onLoginClick, onSignupClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="PropShare Logo" />
-        </a>
+        </Link>
         <span className="navbar-title">PropShare</span>
       </div>
 
@@ -20,14 +21,17 @@ const Navbar = () => {
         <span className={isOpen ? "open" : ""}></span>
       </button>
 
-      
       <div className={`navbar-links ${isOpen ? "active" : ""}`}>
         <ul>
-          <li><a href="/login">Login / SignUp</a></li>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">Listings</a></li>
-          <li><a href="/why">Why PropShare?</a></li>
-          <li><a href="/about">About</a></li>
+          <li>
+            <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+          </li>
+          <li>
+            <Link to="/listings" onClick={() => setIsOpen(false)}>Listings</Link>
+          </li>
+          <li>
+            <Link to="/why" onClick={() => setIsOpen(false)}>Why PropShare?</Link>
+          </li>
         </ul>
       </div>
     </nav>

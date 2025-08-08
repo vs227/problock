@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { FaFacebookF, FaYoutube, FaLinkedinIn, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -17,36 +18,36 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#">Contact Us</a></li>
+            <li><Link href="/">Contact Us</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="#">Privacy policy</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Disclaimer</a></li>
-            <li><a href="#">ODR - Circular</a></li>
+            <li><Link href="/">Privacy policy</Link></li>
+            <li><Link href="/">Terms of service</Link></li>
+            <li><Link href="/">Disclaimer</Link></li>
+            <li><Link href="/">ODR - Circular</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Investor Relations</h4>
           <ul>
-            <li><a href="#">Investor Overview</a></li>
-            <li><a href="#">Results & Publications</a></li>
-            <li><a href="#">Distribution History</a></li>
-            <li><a href="#">Events & Webcasts</a></li>
-            <li><a href="#">Regulatory Filings</a></li>
-            <li><a href="#">Unit Information</a></li>
-            <li><a href="#">IPO Information</a></li>
-            <li><a href="#">Investor Charter & Complaints</a></li>
-            <li><a href="#">Disclosure</a></li>
-            <li><a href="#">Corporate Overview</a></li>
-            <li><a href="#">Corporate Governance</a></li>
-            <li><a href="#">Announcements</a></li>
-            <li><a href="#">IR Contacts</a></li>
+            <li><Link href="/">Investor Overview</Link></li>
+            <li><Link href="/">Results & Publications</Link></li>
+            <li><Link href="/">Distribution History</Link></li>
+            <li><Link href="/">Events & Webcasts</Link></li>
+            <li><Link href="/">Regulatory Filings</Link></li>
+            <li><Link href="/">Unit Information</Link></li>
+            <li><Link href="/">IPO Information</Link></li>
+            <li><Link href="/">Investor Charter & Complaints</Link></li>
+            <li><Link href="/">Disclosure</Link></li>
+            <li><Link href="/">Corporate Overview</Link></li>
+            <li><Link href="/">Corporate Governance</Link></li>
+            <li><Link href="/">Announcements</Link></li>
+            <li><Link href="/">IR Contacts</Link></li>
           </ul>
         </div>
       </div>
@@ -60,7 +61,7 @@ const Footer = () => {
           For direct filing of complaints on SCORES in a few quick steps (a) Register on SCORES portal (b) Fill in all the mandatory details for filing complaints on SCORES - name, PAN, address, mobile number, email ID. Benefits for this will be effective communication and speedy redressal of the grievances.
         </p>
         <p>
-          SEBI Scores Portal: <a href="https://scores.sebi.gov.in" target="_blank" rel="noreferrer">https://scores.sebi.gov.in</a> | ODR Portal: <a href="https://smartodr.in/login" target="_blank" rel="noreferrer">https://smartodr.in/login</a>
+          SEBI Scores Portal: <Link href="https://scores.sebi.gov.in" target="_blank" rel="noreferrer">https://scores.sebi.gov.in</Link> | ODR Portal: <Link href="https://smartodr.in/login" target="_blank" rel="noreferrer">https://smartodr.in/login</Link>
         </p>
         <p>
           For any queries and grievance redressal related matters please write to the compliance officer — Mr. Shreyas Upadhye, Phone no +91 8446859929, Email id - <a href="mailto:compliance.officer@propertyshare.in">compliance.officer@propertyshare.in</a>
@@ -70,11 +71,11 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>Copyright © PropShare Investment Manager Private Limited</p>
         <div className="social-icons">
-          <a href="#"><FaFacebookF /></a>
-          <a href="#"><FaYoutube /></a>
-          <a href="#"><FaLinkedinIn /></a>
-          <a href="#"><FaXTwitter /></a>
-          <a href="#"><FaInstagram /></a>
+          <Link href="/"><FaFacebookF /></Link>
+          <Link href="/"><FaYoutube /></Link>
+          <Link href="/"><FaLinkedinIn /></Link>
+          <Link href="/"><FaXTwitter /></Link>
+          <Link href="/"><FaInstagram /></Link>
         </div>
       </div>
     </footer>

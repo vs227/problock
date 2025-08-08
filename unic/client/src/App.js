@@ -1,37 +1,67 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import Mid from './components/Mid';
-import Res from './components/Res';
-import Why from './components/Why';
-import Footer from './components/Footer';
-import RevealWrapper from './components/RevealWrapper';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
+
+import Home from "./pages/Home";
+import Listings from "./pages/Listings";
+import WhyPropShare from "./pages/WhyPropShare";
+import RevealWrapper from "./components/RevealWrapper";
+
+import { useState } from "react";
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+
+  const openLogin = () => {
+    setShowSignup(false);
+    setShowLogin(true);
+  };
+
+  const openSignup = () => {
+    setShowLogin(false);
+    setShowSignup(true);
+  };
+
+  const closeModals = () => {
+    setShowLogin(false);
+    setShowSignup(false);
+  };
+
   return (
-    <div>
-      <Navbar />
+    <Router>
+      <div className="App">
+        <Navbar onLoginClick={openLogin} onSignupClick={openSignup} />
 
-      <RevealWrapper delay={0.1}>
-        <Header />
-      </RevealWrapper>
+        {showLogin && (
+          <LoginForm onClose={closeModals} onSignupClick={openSignup} />
+        )}
+        {showSignup && (
+          <SignupForm onClose={closeModals} onLoginClick={openLogin} />
+        )}
 
-      
-      <Mid />
-      
-
-      <RevealWrapper delay={0.3}>
-        <Res />
-      </RevealWrapper>
-
-      <RevealWrapper delay={0.4}>
-        <Why />
-      </RevealWrapper>
-
-      <RevealWrapper delay={0.5}>
-        <Footer />
-      </RevealWrapper>
-    </div>
+        <main style={{ flex: 1 }}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home onLoginClick={openLogin} onSignupClick={openSignup} />
+              }
+            />
+            <Route path="/listings" element={<Listings />} />
+            <Route path="/why" element={<WhyPropShare />} />
+          </Routes>
+        </main>
+        <RevealWrapper delay={0.5}>
+          <Footer />
+        </RevealWrapper>
+      </div>
+    </Router>
   );
 }
 
