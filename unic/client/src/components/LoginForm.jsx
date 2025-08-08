@@ -1,12 +1,19 @@
+// LoginForm.jsx
 import React from "react";
 import "./LoginForm.css";
-import RevealWrapper from "../components/RevealWrapper";
+import { motion, AnimatePresence } from "framer-motion";
 
 const LoginForm = ({ onClose, onSignupClick }) => {
   return (
     <div className="login-modal">
-      <RevealWrapper delay={0.1}>
-        <div className="login-box">
+      <AnimatePresence>
+        <motion.div
+          className="login-box"
+          initial={{ opacity: 0, scale: 0.8, y: -30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, y: -30 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
           <h2>Login</h2>
           <form>
             <input type="text" placeholder="Username or Email" />
@@ -14,13 +21,14 @@ const LoginForm = ({ onClose, onSignupClick }) => {
             <button type="submit">Login</button>
           </form>
           <p className="switch-link">
-            Don't have an account? <span onClick={onSignupClick}>Sign up</span>
+            Don't have an account?{" "}
+            <span onClick={onSignupClick}>Sign up</span>
           </p>
           <button className="close-btn" onClick={onClose}>
-            x
+            ×
           </button>
-        </div>
-      </RevealWrapper>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

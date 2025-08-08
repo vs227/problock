@@ -27,7 +27,7 @@ const Navbar = ({ onLoginClick, onSignupClick }) => {
             <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
           </li>
           <li>
-            <Link to="/listings" onClick={() => setIsOpen(false)}>Listings</Link>
+            <Link to="/listmain" onClick={() => setIsOpen(false)}>Listings</Link>
           </li>
           <li>
             <Link to="/why" onClick={() => setIsOpen(false)}>Why PropShare?</Link>

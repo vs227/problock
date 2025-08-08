@@ -2,15 +2,12 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 
 import Home from "./pages/Home";
-import Listings from "./pages/Listings";
+import Listmain from "./pages/Listmain";
 import WhyPropShare from "./pages/WhyPropShare";
-import RevealWrapper from "./components/RevealWrapper";
 
 import { useState } from "react";
 
@@ -34,7 +31,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/problock">
       <div className="App">
         <Navbar onLoginClick={openLogin} onSignupClick={openSignup} />
 
@@ -53,13 +50,10 @@ function App() {
                 <Home onLoginClick={openLogin} onSignupClick={openSignup} />
               }
             />
-            <Route path="/listings" element={<Listings />} />
+            <Route path="/listmain" element={<Listmain />} />
             <Route path="/why" element={<WhyPropShare />} />
           </Routes>
         </main>
-        <RevealWrapper delay={0.5}>
-          <Footer />
-        </RevealWrapper>
       </div>
     </Router>
   );

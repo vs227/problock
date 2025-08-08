@@ -1,8 +1,28 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./Listings.css";
 import logo from "../images/prop.jpg";
 import logo2 from "../images/image.png";
-import RevealWrapper from "../components/RevealWrapper";
+
+// Container animation (stagger children)
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+// Single item animation
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 const Listings = () => {
   const [showAll, setShowAll] = useState(true);
@@ -16,7 +36,7 @@ const Listings = () => {
       ipo: "21-25 June ‘25",
       yield: "9.0%",
       size: "₹10,00,000",
-      image: logo,
+      image: logo
     },
     {
       id: 2,
@@ -26,8 +46,8 @@ const Listings = () => {
       ipo: "2-4 Dec ‘24",
       yield: "9.0%",
       size: "₹10,00,000",
-      image: logo2,
-    },
+      image: logo2
+    }
   ];
 
   return (
@@ -42,35 +62,46 @@ const Listings = () => {
               setShowAll(true);
             }}
           >
-            <RevealWrapper delay={0.3}>
-                <h3>All Opportunities</h3>
-            </RevealWrapper>
-            
+            <motion.h3
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+            >
+              All Opportunities
+            </motion.h3>
           </a>
         </div>
       </div>
 
       {showAll && (
-        <div className="cards">
-          {listingsData.map((listing, index) => (
-            <RevealWrapper key={listing.id} delay={index * 0.2}>
-              <div className="card">
-                <img src={listing.image} alt={listing.title} />
-                <div className="card-content">
-                  <h3>{listing.title}</h3>
-                  <p>{listing.location}</p>
-                  <div className="card-meta">
-                    <div><strong>Type:</strong> {listing.type}</div>
-                    <div><strong>IPO:</strong> {listing.ipo}</div>
-                    <div><strong>Yield:</strong> {listing.yield}</div>
-                    <div><strong>Min size:</strong> {listing.size}</div>
-                  </div>
-                  <button>View More →</button>
+        <motion.div
+          className="cards"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {listingsData.map((listing) => (
+            <motion.div key={listing.id} className="card" variants={itemVariants}>
+              <img
+                src={listing.image}
+                alt={listing.title}
+                loading="lazy"
+              />
+              <div className="card-content">
+                <h3>{listing.title}</h3>
+                <p>{listing.location}</p>
+                <div className="card-meta">
+                  <div><strong>Type:</strong> {listing.type}</div>
+                  <div><strong>IPO:</strong> {listing.ipo}</div>
+                  <div><strong>Yield:</strong> {listing.yield}</div>
+                  <div><strong>Min size:</strong> {listing.size}</div>
                 </div>
+                <button>View More →</button>
               </div>
-            </RevealWrapper>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );
