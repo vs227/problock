@@ -31,7 +31,7 @@ function App() {
   };
 
   return (
-    <Router basename="/problock">
+    <Router>
       <div className="App">
         <Navbar onLoginClick={openLogin} onSignupClick={openSignup} />
 
