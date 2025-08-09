@@ -3,6 +3,7 @@ import "./WhyPropShare.css";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+
 const WhyPropShare = () => {
   const navigate = useNavigate();
 
