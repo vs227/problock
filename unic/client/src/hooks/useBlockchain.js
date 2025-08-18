@@ -15,20 +15,24 @@ export default function useBlockchain() {
       return;
     }
 
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    await provider.send("eth_requestAccounts", []);
-    const signer = await provider.getSigner();
-    const addr = await signer.getAddress();
-    setAccount(addr);
+    try {
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      await provider.send("eth_requestAccounts", []);
+      const signer = await provider.getSigner();
+      const addr = await signer.getAddress();
+      setAccount(addr);
 
-    // Fetch PST balance
-    const token = new ethers.Contract(
-      addresses.PropertyToken,
-      PropertyTokenABI.abi,
-      signer
-    );
-    const bal = await token.balanceOf(addr);
-    setPstBalance(ethers.formatUnits(bal, 18));
+      // Fetch PST balance
+      const token = new ethers.Contract(
+        addresses.PropertyToken,
+        PropertyTokenABI.abi,
+        signer
+      );
+      const bal = await token.balanceOf(addr);
+      setPstBalance(ethers.formatUnits(bal, 18));
+    } catch (err) {
+      console.error("⚠️ connectWallet error:", err);
+    }
   }
 
   // Buy PST tokens
@@ -38,19 +42,19 @@ export default function useBlockchain() {
       return;
     }
 
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-
-    const sale = new ethers.Contract(
-      addresses.PrimarySale,
-      PrimarySaleABI.abi,
-      signer
-    );
-
     try {
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+
+      const sale = new ethers.Contract(
+        addresses.PrimarySale,
+        PrimarySaleABI.abi,
+        signer
+      );
+
       const tx = await sale.buyTokens(ethers.parseUnits(amount, 18));
       await tx.wait();
-      alert(`Bought ${amount} PST!`);
+      alert(`✅ Bought ${amount} PST!`);
 
       // Refresh balance
       const token = new ethers.Contract(
@@ -61,8 +65,8 @@ export default function useBlockchain() {
       const bal = await token.balanceOf(account);
       setPstBalance(ethers.formatUnits(bal, 18));
     } catch (err) {
-      console.error(err);
-      alert("Transaction failed");
+      console.error("⚠️ buyPST error:", err);
+      alert("Transaction failed. Check console.");
     }
   }
 

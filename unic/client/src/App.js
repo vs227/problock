@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Listmain from "./pages/Listmain";
 import WhyPropShare from "./pages/WhyPropShare";
 import TokenDetails from "./pages/TokenDetails";
+import Dashboard from "./pages/Dashboard";
 
 import useBlockchain from "./hooks/useBlockchain";
 
@@ -70,6 +71,7 @@ function App() {
               <Route path="/listmain" element={<Listmain />} />
               <Route path="/why" element={<WhyPropShare />} />
               <Route path="/token/:id" element={<TokenDetails />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </main>
         </div>

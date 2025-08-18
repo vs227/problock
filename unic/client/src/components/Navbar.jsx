@@ -32,6 +32,9 @@ const Navbar = ({ onLoginClick, onSignupClick }) => {
           <li>
             <Link to="/why" onClick={() => setIsOpen(false)}>Why PropShare?</Link>
           </li>
+          <li>
+            <Link to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
+          </li>
         </ul>
       </div>
     </nav>
