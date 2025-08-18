@@ -124,7 +124,7 @@
 @media (max-width: 992px) {
     .token-main {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: start;
     }
 
     .token-yield {
