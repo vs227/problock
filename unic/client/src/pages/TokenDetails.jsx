@@ -10,7 +10,7 @@ import "./TokenDetails.css";
 const listingsData = [
   {
     id: 1,
-    title: "PropShare Titania (PSTITANIA)",
+    title: "Avenue City",
     location: "Pune, River view city",
     type: "Bungalow",
     ipo: "21-25 June ‘25",
