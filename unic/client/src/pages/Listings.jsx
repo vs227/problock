@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "./Listings.css";
 import logo from "../images/prop.jpg";
 import logo2 from "../images/image.png";
 
-// Container animation (stagger children)
 const containerVariants = {
   hidden: {},
   visible: {
@@ -14,7 +14,6 @@ const containerVariants = {
   }
 };
 
-// Single item animation
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -26,6 +25,7 @@ const itemVariants = {
 
 const Listings = () => {
   const [showAll, setShowAll] = useState(true);
+  const navigate = useNavigate();
 
   const listingsData = [
     {
@@ -97,7 +97,9 @@ const Listings = () => {
                   <div><strong>Yield:</strong> {listing.yield}</div>
                   <div><strong>Min size:</strong> {listing.size}</div>
                 </div>
-                <button>View More →</button>
+                <button onClick={() => navigate(`/token/${listing.id}`)}>
+                  View More →
+                </button>
               </div>
             </motion.div>
           ))}

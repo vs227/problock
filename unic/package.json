@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0",
     "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "dotenv": "^16.6.1",
+    "hardhat": "^2.26.3"
   }
 }

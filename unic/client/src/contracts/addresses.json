@@ -1,0 +1,7 @@
+{
+  "network": "amoy",
+  "PropertyToken": "0x1234abcd...",
+  "DividendDistributor": "0xabcd5678...",
+  "PrimarySale": "0x9876efgh...",
+  "USDC": "0x41E94Eb019C0762f9Bfcf9Fb1E58725BfB0e7582"
+}

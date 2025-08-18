@@ -10,14 +10,18 @@ import SignupForm from "./components/SignupForm";
 import Home from "./pages/Home";
 import Listmain from "./pages/Listmain";
 import WhyPropShare from "./pages/WhyPropShare";
+import TokenDetails from "./pages/TokenDetails";
 
-// Replace with your actual Google Client ID from Google Cloud Console
+import useBlockchain from "./hooks/useBlockchain";
+
 const GOOGLE_CLIENT_ID =
   "156158711428-dckii86h9366ors3331od1d44pi8b4u5.apps.googleusercontent.com";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+
+  const { account, pstBalance, connectWallet } = useBlockchain();
 
   const openLogin = () => {
     setShowSignup(false);
@@ -38,8 +42,17 @@ function App() {
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <Router>
         <div className="App">
-          <Navbar onLoginClick={openLogin} onSignupClick={openSignup} />
+          {/* Navbar */}
+          <Navbar
+            onLoginClick={openLogin}
+            onSignupClick={openSignup}
+            account={account}
+            pstBalance={pstBalance}
+            connectWallet={connectWallet}
+          />
 
+
+          {/* Login / Signup Modals */}
           {showLogin && (
             <LoginForm onClose={closeModals} onSignupClick={openSignup} />
           )}
@@ -47,16 +60,16 @@ function App() {
             <SignupForm onClose={closeModals} onLoginClick={openLogin} />
           )}
 
+          {/* Main Routes */}
           <main style={{ flex: 1 }}>
             <Routes>
               <Route
                 path="/"
-                element={
-                  <Home onLoginClick={openLogin} onSignupClick={openSignup} />
-                }
+                element={<Home onLoginClick={openLogin} onSignupClick={openSignup} />}
               />
               <Route path="/listmain" element={<Listmain />} />
               <Route path="/why" element={<WhyPropShare />} />
+              <Route path="/token/:id" element={<TokenDetails />} />
             </Routes>
           </main>
         </div>
