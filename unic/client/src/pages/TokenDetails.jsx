@@ -10,8 +10,8 @@ import "./TokenDetails.css";
 const listingsData = [
   {
     id: 1,
-    title: "Avenue City",
-    location: "Pune, River view city",
+    title: "River view city",
+    location: "River view city, Pune",
     type: "Bungalow",
     ipo: "21-25 June ‘25",
     yield: "9.0%",
@@ -20,7 +20,7 @@ const listingsData = [
   },
   {
     id: 2,
-    title: "PropShare Platina (PSPLATINA)",
+    title: "Seasons Commercial",
     location: "Seasons, Pune",
     type: "Office",
     ipo: "2-4 Dec ‘24",

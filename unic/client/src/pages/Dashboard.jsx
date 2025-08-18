@@ -28,7 +28,7 @@ ChartJS.register(
 const Dashboard = () => {
   const holdings = [
     { title: "Avenue City", value: "₹5,00,000", yield: 9 },
-    { title: "PS Platina", value: "₹3,00,000", yield: 7.5 },
+    { title: "PS Platina", value: "₹3,00,000", yield: 9 },
   ];
 
   const chartData = {
